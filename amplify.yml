@@ -24,8 +24,8 @@ backend:
         - export COGNITO_USER_POOL_CLIENT_ID=$(jq -r '.auth[(.auth | keys)[0]].output.AppClientIDWeb' ./amplify/#current-cloud-backend/amplify-meta.json)
         - export FLIGHT_TABLE_NAME=$(aws appsync list-data-sources --api-id ${GRAPHQL_API_ID} --query "dataSources[?name=='FlightTable'].dynamodbConfig.tableName" --output text)
         - export BOOKING_TABLE_NAME=$(aws appsync list-data-sources --api-id ${GRAPHQL_API_ID} --query "dataSources[?name=='BookingTable'].dynamodbConfig.tableName" --output text)
-        - export STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-UNDEFINED}
-        - export STRIPE_PUBLIC_KEY=${STRIPE_PUBLIC_KEY:-UNDEFINED}
+        - export STRIPE_PUBLIC_KEY=${STRIPE_PUBLIC_KEY:pk_test_51J1JUMAoXB86waakc50wmtDK6EvK7MAx7IYef8L3rRuEMlTvV4xEafRPdKBPYSVt3zA4k12ZWECXuW7DvgYebm7700HvSsZENb}
+        - export STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:sk_test_51J1JUMAoXB86waak9FEocSuUcGbqmbGH66Fs3bOzoznDUWx6IcCY2rTrARMag7HtNuqbscGD5eEUfkmmRP0SsZkC00g83k4gzT}
         ##
         # Export key deployed resources to System Manager Parameter Store
         ##
